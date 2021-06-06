@@ -23,13 +23,7 @@ const router = new Router({
           name: 'Home',
           component: () => import('@/views/home/Index.vue'),
          },
-        {
-          path: 'pro',
-          name: 'Pro',
-          component: () => import('@/views/pro/Index.vue'),
-          meta: { src: require('@/assets/pro.jpg') },
-        },
-        {
+            {
           path: 'about',
           name: 'About',
           component: () => import('@/views/about.vue'),
@@ -43,7 +37,21 @@ const router = new Router({
             path: 'schools',
             name: 'Schools',
             component: () => import('@/views/schools.vue'),
-            },
+            children: [
+              {
+                path: '/schools',
+                name: 'SchoolHome',
+                props: true,
+                component: () => import('@/views/sections/school/SchoolHome.vue'),
+              },
+                  {
+                    path: '/schools/bulletin',
+                    name: 'SchoolBulletin',
+                    props: true,
+                    component: () => import('@/views/sections/school/SchoolBulletin.vue'),
+                  },
+                     ],
+},
             {
             path: 'library',
             name: 'Library',
@@ -84,6 +92,11 @@ const router = new Router({
                         name: 'Contact Us',
                         component: () => import('@/views/contactus.vue'),
                         },
+                        {
+                          path: 'blog',
+                          name: 'Blog',
+                          component: () => import('@/views/blog.vue'),
+                          },
       ],
     },
 

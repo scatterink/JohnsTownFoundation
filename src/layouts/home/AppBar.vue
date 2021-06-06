@@ -54,7 +54,6 @@
       drawer: null,
       items: [
         'Home',
-        'Pro',
         'About',
         'Projects',
         'Schools',
@@ -66,6 +65,7 @@
         'Donate',
         'Sponsors',
         'Contact Us',
+        'Blog',
       ],
     }),
   }
