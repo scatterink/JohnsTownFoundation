@@ -1,4 +1,3 @@
-
 <template>
   <base-section
     id="trademen-body"
@@ -16,7 +15,7 @@
           dense
         >
           <v-col
-            v-for="(item1, key) in list"
+            v-for="(item1, key) in filteredList"
             :key="key"
             cols="3"
           >
@@ -28,10 +27,7 @@
             >
               <template>
                 <v-expansion-panels>
-                  <v-expansion-panel
-                    v-for="(item,i) in 1"
-                    :key="i"
-                  >
+                  <v-expansion-panel>
                     <v-expansion-panel-header>
                       <div
                         class="text-center"
@@ -123,9 +119,12 @@
 </template>
 
 <script>
+  import { mapState } from 'vuex'
+
   export default {
     name: 'TrademenBody',
     data: () => ({
+      rating: 0,
       list: [
         {
           icon: 'mdi-gate',
@@ -135,6 +134,7 @@
           initials: 'JS',
           revname: 'Sam D',
           msg: 'Best Welder Ever',
+          categories: ['Plumbing'],
         },
         {
           icon: 'mdi-car-hatchback',
@@ -144,6 +144,7 @@
           initials: 'AS',
           revname: 'Donovan M',
           msg: 'Avoid at all cost',
+          categories: ['Plumbing'],
         },
         {
           icon: 'mdi-wheel-barrow',
@@ -153,6 +154,7 @@
           initials: 'RS',
           revname: '',
           msg: '',
+          categories: ['Jack'],
         },
         {
           icon: 'mdi-flower-tulip',
@@ -162,6 +164,7 @@
           initials: 'NS',
           revname: 'Steffany B',
           msg: 'Guy really know how to plow that land',
+          categories: ['Gardening'],
         },
         {
           icon: 'mdi-flash-circle',
@@ -171,6 +174,7 @@
           initials: 'BS',
           revname: 'Neil P',
           msg: 'Great worker',
+          categories: ['Gardening'],
         },
         {
           icon: 'mdi-head-lightbulb',
@@ -180,8 +184,15 @@
           initials: 'TG',
           revname: 'Sansa S',
           msg: 'Hard worker. Ontime on Schedule',
+          categories: ['Jack', 'Plumbing'],
         },
       ],
     }),
+    computed: {
+      ...mapState(['tradeMenFilter']),
+      filteredList () {
+        return this.list.filter(item => !this.tradeMenFilter || this.tradeMenFilter === 'All' || item.categories.includes(this.tradeMenFilter))
+      },
+    },
   }
 </script>

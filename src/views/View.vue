@@ -15,7 +15,6 @@
 <script>
   export default {
     name: 'BaseView',
-
     props: {
       id: {
         type: String,
@@ -23,6 +22,8 @@
       },
     },
 
-    data: () => ({ sections: [] }),
+    data: () => ({
+      sections: [],
+    }),
   }
 </script>

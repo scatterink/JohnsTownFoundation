@@ -26,14 +26,14 @@
           <v-tab
             v-for="(name, i) in items"
             :key="i"
-            :to="{ name }"
+            :to="name.path ? { path: name.path }: { name }"
             :exact="name === 'Home'"
             :ripple="false"
             class="font-weight-bold"
             min-width="96"
             text
           >
-            {{ name }}
+            {{ name.name || name }}
           </v-tab>
         </v-tabs>
       </div>
@@ -56,7 +56,7 @@
         'Home',
         'About',
         'Projects',
-        'Schools',
+        { name: 'Schools', path: '/schools' },
         'Library',
         'Post Office',
         'Trade-Men',

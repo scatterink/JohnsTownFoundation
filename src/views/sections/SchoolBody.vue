@@ -5,7 +5,6 @@
   >
     <div>
       <router-view />
-      test
     </div>
   </base-section>
 </template>

@@ -13,8 +13,7 @@
     extends: View,
 
     mixins: [
-      LoadSections([
-        'school-heading', 'school-body']),
+      LoadSections(['school-heading', 'school-body']),
     ],
 
     props: {

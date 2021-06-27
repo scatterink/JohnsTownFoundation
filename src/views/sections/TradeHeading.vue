@@ -15,6 +15,7 @@
             cols="12"
             sm="4"
             md="3"
+            @click="setFilter(card.title)"
           >
             <base-info-card
               align="center"
@@ -91,5 +92,11 @@
         },
       ],
     }),
+
+    methods: {
+      setFilter (filter) {
+        this.$store.commit('setTradeMenFilter', filter)
+      },
+    },
   }
 </script>
