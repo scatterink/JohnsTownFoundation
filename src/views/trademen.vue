@@ -14,7 +14,8 @@
 
     mixins: [
       LoadSections(['trade-heading',
-                    'trade-features']),
+                    'trade-features',
+                    'trademen-body']),
     ],
 
     props: {
