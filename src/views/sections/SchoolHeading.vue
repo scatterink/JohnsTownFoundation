@@ -45,7 +45,7 @@
           text: '',
         },
         {
-          icon: 'mdi-teach',
+          icon: 'mdi-human-male-board',
           title: 'Administration',
           text: '',
         },
